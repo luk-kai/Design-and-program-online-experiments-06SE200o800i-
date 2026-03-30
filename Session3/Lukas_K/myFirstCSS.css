@@ -1,0 +1,9 @@
+/* this is my external style .css*/
+* {
+color: blue;
+text-align: center;
+}
+.highlight {
+color: red;
+}   
+#main_heading { text-decoration:underline; }

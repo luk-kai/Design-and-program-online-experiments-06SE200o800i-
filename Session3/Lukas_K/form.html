@@ -16,16 +16,16 @@
   
 
       <!--3.2.1 Create inputs to ask participants for some personal information, like ID (as text input; placehoder text as ABC123), age (as number input, add min = 18 and max = 35 input)-->
-      <label>1. ID: *</label>
-      <input placeholder="ABC123" required>
+      <label>1. ID: <span style="color:red">*</span></label>
+      <input placeholder="ABC123" required type="text">
       <br><br>
-      <label>2. Age: *</label>
+      <label>2. Age: <span style="color:red">*</span></label>
       <input placeholder="18-35" type="number" min="18" max="35" required>
-
+      <br><br>
 
       <!--3.2.2 Add drop-down more options (Non-Binary) for gender information-->
-      <p>3. Gender:</p>
-      <select name="gender" >
+      <label>3. Gender: <span style="color:red">*</span></label>
+      <select name="gender" required>
         <option value="" disabled selected>Please select your gender</option>
         <option>Woman</option>
         <option>Man</option>

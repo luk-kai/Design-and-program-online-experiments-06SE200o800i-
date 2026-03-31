@@ -65,12 +65,24 @@ If the age is outside this range, display an alert() with the message:
 "Participant is not eligible for the experiment due to age!". 
 */
 
+
 // First try when age = 25 
 let age = 25;
 console.log("Try age =", age);
 
+function ageCheck(age) {
+    if (age >= 18 && age <= 35) {
+        console.log(`The current participant's age is, ${age}, within 18-35; Participant is eligible for the experiment`);
+    
+    } else {
+        alert("Participant is not eligible for the experiment due to age!");
+    }
+}
+ageCheck(age);
 // Then try when age = 17
-
+// age = 17;
+// console.log("Try age =", age);
+//ageCheck(age);
 
 /* # plus 1:  In JavaScript, certain operations (like arithmetic operations) can implicitly convert values from one type to another.
 First, work out from what you understand by replacing the ? with your expected outcome;

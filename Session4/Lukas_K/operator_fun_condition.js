@@ -90,8 +90,8 @@ Then, uncomment two console.log()lines to check your answers.
 */
 let value = "5";
 let result = value * 2;
-// console.log(result);        // ?
-// console.log(typeof result); // ?
+console.log(result);        // 10
+console.log(typeof result); // number
 // When a string is used in an arithmetic operation, JavaScript attempts to convert it into a number.
 
 /* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality 
@@ -107,9 +107,27 @@ let totalPoints = points + bonus;
 let isEqual = totalPoints == 105;  
 let isStrictEqual = totalPoints === 105; 
 
-// console.log(totalPoints);   // ?
-// console.log(isEqual);       // ?
-// console.log(isStrictEqual); // ?
+console.log(totalPoints);   // 105
+console.log(isEqual);       // true
+console.log(isStrictEqual); // false
+
+
+//points + bonus becomes 105 because
+// points is a number (10)
+// bonus is a string ("5")
+// The + operator with a string does string concatenation, so 10 + "5" becomes "105"
+
+//The earlier result was 10 because:
+// value is "5" (string)
+// value * 2 uses the * operator, which does numeric math only
+// JavaScript converts "5" to 5, then computes 5 * 2 = 10
+
+//Key difference:
+// Plus can mean string join or numeric add
+// Multiply always forces numeric conversion
+
+
+
 
 
 /* Plus 3: 

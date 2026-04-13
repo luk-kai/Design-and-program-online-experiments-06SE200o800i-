@@ -1,17 +1,20 @@
-// let ageGroup;
-// const age = 25;
-// if(age<18){
-//     ageGroup = "Child";
+let ageGroup;
+const age = 25;
 
-// }else{
-//     ageGroup="Adult";
-// }
-// console.log("ageGroup:", ageGroup);
+if(age<18){
+   ageGroup = "Child";
+}else{
+    ageGroup = "Adult";
+}
 
-let age = 18;
+console.log("ageGroup:", ageGroup);
+
+let age = 17;
+
 let ageGroup = age<18?"child":"adult";
+
 console.log("ageGroup:", ageGroup);
 
 for(let i=0; i < 5; i++){
-    console.log("i/number:", i+1);
+  console.log("i/number:", i+1);
 }

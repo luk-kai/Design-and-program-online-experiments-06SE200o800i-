@@ -1,5 +1,5 @@
 let ageGroup;
-const age = 25;
+let age = 25;
 
 if(age<18){
    ageGroup = "Child";
@@ -9,12 +9,19 @@ if(age<18){
 
 console.log("ageGroup:", ageGroup);
 
-let age = 17;
+age = 17;
 
-let ageGroup = age<18?"child":"adult";
+ageGroup = age<18?"child":"adult";
 
 console.log("ageGroup:", ageGroup);
 
 for(let i=0; i < 5; i++){
   console.log("i/number:", i+1);
 }
+
+
+const responseTimes = [350, 420, 510];
+for (const time of responseTimes) {
+console.log(`Response Time: ${time} ms`);
+}
+

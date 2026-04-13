@@ -37,3 +37,11 @@ while (i < 5) {
 console.log(`Number: ${i}`);
 i++; // Increment the counter
 }
+
+i = 0;
+do {
+console.log(`Number: ${i}`);
+console.log(i);
+i++;
+console.log(i);
+}while(i < 5)

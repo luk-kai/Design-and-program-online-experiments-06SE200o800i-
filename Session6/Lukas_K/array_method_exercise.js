@@ -30,7 +30,10 @@ const trials = [
 
 let correctCount = 0;
 // start add your code here
-
+trials.forEach((item) => {if(item.correct){
+  correctCount += 1;
+  }
+});
 // your code end
 console.log("Correct answers:", correctCount);
 const acc =  correctCount/trials.length;

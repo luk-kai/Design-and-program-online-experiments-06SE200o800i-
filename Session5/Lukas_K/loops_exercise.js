@@ -46,8 +46,12 @@ let thisTrial;
 let j = 0
 
 
-
-
-
+while (totalTime <= 2000){
+    totalTime += reactionTimes[j];
+    j++;
+    thisTrial = j;
+    console.log(j);
+    console.log(totalTime);
+}
 
  console.log(`Cumulative reaction time exceeded 2000 ms at trial ${thisTrial}.`);

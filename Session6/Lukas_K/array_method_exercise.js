@@ -45,8 +45,12 @@ console.log("Accuracy:", acc);
 
 /* plus 1: could you think of doing exercise 1 in chaining */
 
+const correct = trials
+  .filter((trial) => trial.correct)
+  .length
 
-
+const accuracy = correct / trials.length
+console.log("Trials correct: ", correct, " Accuracy: ", accuracy)
  
  
  

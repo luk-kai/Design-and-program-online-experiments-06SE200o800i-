@@ -8,8 +8,11 @@
 // plus 1: draw an easter egg (with some decoration) next to the bunny 
 
 //step 2:  initiate jsPsych
+ const jsPsych = initJsPsych()
+ 
+ // step 3: building timeline 
 
-// step 3: building timeline 
+const timeline = []
 
 // instruction 
 const instruction = {
@@ -95,6 +98,66 @@ const drawBunnyfn = function (canvas){
 
 }
 
+const bunny = {
+    type: jsPsychCanvasKeyboardResponse,
+    stimulus: drawBunnyfn,
+    canvas_size: [300, 300],
+    choices: [" "],
+    prompt: "<p>Press space to continue.</p>"
+}
+
+timeline.push(bunny);
+
+const drawFace = function (canvas){
+    
+    const context = canvas.getContext("2d");
+   
+    // The following is the block of drawing a face
+
+    
+       let x = canvas.width/2;
+       let y = canvas.height/2;
+   
+       context.clearRect(0, 0, canvas.width, canvas.height);
+   
+       // COLORS
+       const face = "#ffff3e";
+       const mouth = "#000000";
+       const eyes = "#1a0555";
+
+        // FACE
+        context.beginPath();
+        context.arc(x, y, 50, 0, 2 * Math.PI);
+        context.fillStyle = face;
+        context.fill();
+
+
+            //EYES
+        context.beginPath();
+        context.arc(x - 18, y - 12, 5, 0, 2 * Math.PI);
+        context.arc(x + 18, y - 12, 5, 0, 2 * Math.PI);
+        context.fillStyle = eyes;
+        context.fill();
+      
+        //MOUTH 
+        context.beginPath();
+        context.arc(x, y + 8, 22, 0, Math.PI, false);
+        context.strokeStyle = mouth;
+        context.lineWidth = 3;
+        context.stroke();
+}
+
+const smiley = {
+    type: jsPsychCanvasKeyboardResponse,
+    stimulus: drawFace,
+    canvas_size: [300, 300],
+    choices: [" "],
+    prompt: "<p>Well done!<br> Press space to contiue</p>"
+
+}
+
+
+timeline.push(smiley)
 
 const end = {
     type: jsPsychHtmlKeyboardResponse,
@@ -102,9 +165,11 @@ const end = {
     choices: "NO_KEYS",
     trial_duration: 1000
 }
-timeline.push(end)
+
+timeline.push(end);
 
 // step 4: run the timline
+jsPsych.run(timeline);
 
 
 

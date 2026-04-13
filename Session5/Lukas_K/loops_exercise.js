@@ -10,17 +10,29 @@
  // console.log each iterate index and each reactionTime value accordingly in the loop
  let reactionTimes = [];
  // add your code here
+ 
+/* let index = 0;
 
+for (const element of recordedTimes) {
+    index += 1;
+    const reactionTime = element - 200;
+    reactionTimes.push(reactionTime);
+    console.log(index, reactionTime);
+    console.log(reactionTime);
+}
 
- console.log("reactionTimes: ",reactionTimes);
+console.log("reactionTimes: ",reactionTimes); */
 
 
  
  /* # Plus 1: can you think of more than one way of doing it? */
  
- 
- 
- 
+ for (let i = 0; i < recordedTimes.length; i++) {
+    const reactionTime = recordedTimes[i] - 200;
+    reactionTimes.push(reactionTime);    
+    console.log(i+1);
+    console.log(reactionTime);
+ }
  
  
  /* exercise 5.2.2 */

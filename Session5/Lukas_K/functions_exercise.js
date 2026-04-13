@@ -6,7 +6,11 @@
 const threshold = 300; 
 function isFasterThanThreshold(responseTime) {
     // Write logic to check if the reaction time is faster than the threshold
-
+    if (responseTime >= threshold){
+      return "valid"
+    } else {
+      return "too fast"
+    }
   }
   
 // Call the function with different inputs
@@ -22,11 +26,20 @@ console.log(`Expected output: ${isFasterThanThreshold(400)}`)
 
 // Write your function here
 
-
+function calculateAverageRT(responseTimes){
+  let i = 0
+  let total = 0
+  while (i < responseTimes.length){
+    total += responseTimes[i];
+    i++;
+  }
+  const average = total / responseTimes.length;
+  return average
+}
 
   // Example input
-  let responseTimes = [100, 200, 300, 400, 500,600];
-  const avgTime = calculateAverageRT(responseTimes); 
+  const exampleTimes = [100, 200, 300, 400, 500, 600];
+  const avgTime = calculateAverageRT(exampleTimes); 
   console.log("Expected avgTime:",avgTime );
   // Expected avgTime: 350
 
@@ -38,5 +51,18 @@ console.log(`Expected output: ${isFasterThanThreshold(400)}`)
       "Needs Improvement" if the reaction time is above 500ms.
     2. The console.log statement prints out the feedback for each response time in the array
 
-*/
+ */
 
+let getPerformanceFeedback = (reactionTime) => {
+  if (reactionTime <= 200){
+    return "Excellent"
+  } else if (reactionTime >200 && reactionTime <= 500){
+    return "Good"
+  } else {
+    return "Needs Improvement"
+  }
+}
+
+for (const time of exampleTimes){
+  console.log(time, getPerformanceFeedback(time));
+}

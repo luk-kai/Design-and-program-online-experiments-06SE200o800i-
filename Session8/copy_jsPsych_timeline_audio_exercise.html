@@ -25,7 +25,11 @@
   <script>
 
     /* initialize jsPsych */
-    const jsPsych = initJsPsych();
+    const jsPsych = initJsPsych({
+      on_finish: () => {
+        jsPsych.data.get().localSave("csv", "my_experiment.csv");
+      }
+    });
 
     /* Global-level data */
     jsPsych.data.addProperties({

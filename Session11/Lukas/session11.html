@@ -16,20 +16,97 @@
 <body>
         //Step 1: add script for experiment 
 
-        // step 2: initiate jsPsych instance and assign to a variable 
+<script>  
 
+        // step 2: initiate jsPsych instance and assign to a variable 
+const jsPsych = initJsPsych();
 
         //Step 3:  build your timeline
-
         // Step 3.1: Define your stimulus object array
-        // Step 3.2: Write ONE trial template
-        // step 3.3: Link them together in a block 
+const flankerStimuli = [
+    { target: '<<<<<', congruent: true, direction: 'left'},
+    { target: '<<<<<', congruent: true, direction: 'left'},
+    { target: '>><>>', congruent: false, direction: 'right'},
+    { target: '<<><<', congruent: false, direction: 'left'},
+];
 
+        // Step 3.2: Write ONE trial template
+const flankerTrial = {
+type: jsPsychHtmlKeyboardResponse,  
+stimulus: function() {
+const target = jsPsych.evaluateTimelineVariable('target');
+return `<p style="font-size:64px;">${target}</p>`;
+},
+choices: ['f', 'j'],
+data: function(){
+  return{
+    task: "flanker", 
+    target: jsPsych.evaluateTimelineVariable("target"),
+    congruent: jsPsych.evaluateTimelineVariable("congruent"),
+    correct_key: jsPsych.evaluateTimelineVariable("congruent")? "f":"j",
+    direction: jsPsych.evaluateTimelineVariable("direction"),
+  }
+}
+};
+        // step 3.3: Link them together in a block 
+const flankerBlock = {
+timeline: [flankerTrial],
+timeline_variables: flankerStimuli,
+repetitions: 5,
+randomize_order: true
+};
         
- 
         //Step 4: run your jsPsych
+jsPsych.run(flankerBlock);
+
+</script>
+
 
         <script>
+            /*
+const stroopStimuli = [
+{ word: 'RED', color: 'red', congruent: true},
+{ word: 'GREEN',color: 'green', congruent: true },
+{ word: 'RED', color: 'green', congruent: false },
+{ word: 'GREEN',color: 'red', congruent: false },
+];
+
+// Step 2: Write ONE trial template
+const stroopTrial = {
+type: jsPsychHtmlKeyboardResponse,
+prompt: '<p style="font-size:14px">F = Congruent &nbsp;&nbsp; J = Incongruent</p>',
+choices: ['f', 'j'],
+
+stimulus: function() {
+const word = jsPsych.evaluateTimelineVariable('word');
+const color = jsPsych.evaluateTimelineVariable('color');
+return `<p style="color:${color}; font-size:64px;">${word}</p>`;
+},
+data: function(){
+  return{
+    task: "stroop", 
+    cond: "color",
+    word: jsPsych.evaluateTimelineVariable("word"),
+    color: jsPsych.evaluateTimelineVariable("color"),
+    congruent: jsPsych.evaluateTimelineVariable("congruent")
+  }
+},
+on_finish: function(data){
+  data.correct_key = data.congruent? "a":"l"
+  
+},
+
+}
+
+// Step 3: Link them together in a block
+const stroopBlock = {
+timeline: [stroopTrial], // the template
+timeline_variables: stroopStimuli, 
+repetitions: 2,
+randomize_order: true
+};
+
+jsPsych.run(stroopBlock);
 
         
         
@@ -38,7 +115,7 @@
         </script>
   
 
-
+*/
 
 </body>
 </html>
